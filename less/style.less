@@ -1,0 +1,117 @@
+@screen-sm-min: 768px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+@tileVerticalMargin: 16px;
+.shadow {
+    border: 1px solid rgba(240, 240, 240, 1);
+    box-shadow: 0 2px 8px -4px rgba(0, 0, 0, 1);
+}
+.post-img {
+    background-image: url("http://placehold.it/512x512");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+body {
+    background-color: rgba(245, 245, 245, 1);
+}
+header {
+    .shadow;
+    max-height: 256px;
+    background-image: url(../img/metro-header.png);
+    margin-bottom: @tileVerticalMargin;
+}
+nav {
+    float: left;
+    width: 100%;
+    border-radius: 0 !important;
+}
+footer {
+    margin-bottom: 8px;
+}
+footer > div {
+    border-radius: 8px;
+    background-color: #e8e8e8;
+    background-image: url(../img/noise.jpg);
+    background-blend-mode: multiply;
+    box-shadow: inset 0px 0px 16px -8px;
+    padding: 8px;
+    color: grey;
+    font-style: italic;
+}
+.site-logo {
+    .shadow;
+    background-color: white;
+    border-radius: 256px;
+    margin: 8px 8px 8px 0;
+    padding: 8px;
+}
+.tile-container {
+    overflow: hidden;
+}
+.tile {
+    .shadow;
+    border-radius: 2px;
+    margin: 0 0 @tileVerticalMargin 0;
+    background-color: white;
+    padding: 8px;
+}
+.tile-overlay {
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.7);
+    float: left;
+    position: absolute;
+    margin: 0 0 @tileVerticalMargin 0;
+    transition: top 0.25s;
+    pointer-events: none;
+    color: white;
+}
+.lvl-1, .lvl-2, .lvl-3 {
+    height: 256px;
+    .post-img;
+}
+@media (min-width: @screen-sm-min) {
+    .lvl-1 {
+        height: 256px;
+        .post-img;
+    }
+    .lvl-2 {
+        height: 256px;
+        .post-img;
+    }
+    .lvl-3 {
+        height: 128px;
+        .post-img;
+    }
+}
+
+@media (min-width: @screen-md-min) {
+    .lvl-1 {
+        height: 290px;
+        .post-img;
+    }
+    .lvl-2 {
+        height: 128px;
+        .post-img;
+    }
+    .lvl-3 {
+        height: 96px;
+        .post-img;
+    }
+}
+
+@media (min-width: @screen-lg-min) {
+    .lvl-1 {
+        height: 394px;
+        .post-img;
+    }
+    .lvl-2 {
+        height: 180px;
+        .post-img;
+    }
+    .lvl-3 {
+        height: 96px;
+        .post-img;
+    }
+}
