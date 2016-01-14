@@ -66,7 +66,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-sm-6 col-md-8 tile-container">
+            <div class="col-sm-7 col-md-7 col-lg-7 tile-container">
                 <div class="tile">
                     <div class="post-img lvl-1" style=<?php the_tile_style($latest_posts, 0); ?>></div>
                 </div>
@@ -74,9 +74,9 @@
                     <h2><?php the_post_title($latest_posts, 0); ?></h2>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 tile-container">
+            <div class="col-sm-5 col-md-5 col-lg-5">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-12 tile-container">
+                    <div class="col-xs-12 col-sm-12 col-md-12 tile-container">
                         <div class="tile">
                             <div class="post-img lvl-2" style=<?php the_tile_style($latest_posts, 1); ?>></div>
                         </div>
@@ -84,7 +84,7 @@
                             <h2><?php the_post_title($latest_posts, 1); ?></h2>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-12 tile-container">
+                    <div class="col-xs-12 col-sm-12 col-md-12 tile-container">
                         <div class="tile">
                             <div class="post-img lvl-2" style=<?php the_tile_style($latest_posts, 2); ?>></div>
                         </div>

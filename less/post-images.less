@@ -1,0 +1,60 @@
+@screen-sm-min: 768px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+
+@plageholder-url: url("http://placehold.it/512x512?text=no+image");
+
+.post-img {
+    background-image: @plageholder-url;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.lvl-1, .lvl-2, .lvl-3 {
+    height: 256px;
+    .post-img;
+}
+@media (min-width: @screen-sm-min) {
+    .lvl-1 {
+        height: 390px;
+        .post-img;
+    }
+    .lvl-2 {
+        height: 178px;
+        .post-img;
+    }
+    .lvl-3 {
+        height: 128px;
+        .post-img;
+    }
+}
+
+@media (min-width: @screen-md-min) {
+    .lvl-1 {
+        height: 480px;
+        .post-img;
+    }
+    .lvl-2 {
+        height: 223px;
+        .post-img;
+    }
+    .lvl-3 {
+        height: 156px;
+        .post-img;
+    }
+}
+
+@media (min-width: @screen-lg-min) {
+    .lvl-1 {
+        height: 480px;
+        .post-img;
+    }
+    .lvl-2 {
+        height: 223px;
+        .post-img;
+    }
+    .lvl-3 {
+        height: 196px;
+        .post-img;
+    }
+}
