@@ -54,13 +54,38 @@
             }
             echo $style;
         }
-        function the_post_title($posts_data, $index)
+        function the_post_content($posts_data, $index)
         {
-            $title = "";
+            global $post;
+            $my_postid = $posts_data[$index]['id'];
+            $post = get_post($my_postid);
+            setup_postdata( $post, null, true );
+            the_content();
+            wp_reset_postdata( $post );
+            /*
+            $content = get_post_field('post_content', $my_postid);
+            $content = apply_filters('the_content', $content);
+            $content = str_replace(']]>', ']]&gt;', $content);
+            echo $content;
+            */
+        }
+
+        function the_overlay_content($posts_data, $index)
+        {
             if ($index < count($posts_data)) {
-                $title = $posts_data[$index]['title'];
+                ?>
+                    <div>
+                        <span><?php echo $posts_data[$index]['date']; ?></span>
+                        <span><?php echo $posts_data[$index]['author']; ?></span>
+                    </div>
+                    <h2><?php echo $posts_data[$index]['title']; ?></h2>
+                    <?php the_post_content($posts_data, $index) ?>
+                <?php
+            } else {
+                ?>
+                    <p>No Post</p>
+                <?php
             }
-            echo $title;
         }
     ?>
     <div class="container">
@@ -71,7 +96,7 @@
                     <div class="post-img lvl-1" style=<?php the_tile_style($latest_posts, 0); ?>></div>
                 </div>
                 <div class="tile-overlay">
-                    <h2><?php the_post_title($latest_posts, 0); ?></h2>
+                    <?php the_overlay_content($latest_posts, 0); ?>
                 </div>
             </div>
             <div class="col-sm-5 col-md-5 col-lg-5">
@@ -81,7 +106,7 @@
                             <div class="post-img lvl-2" style=<?php the_tile_style($latest_posts, 1); ?>></div>
                         </div>
                         <div class="tile-overlay">
-                            <h2><?php the_post_title($latest_posts, 1); ?></h2>
+                            <?php the_overlay_content($latest_posts, 1); ?>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 tile-container">
@@ -89,7 +114,7 @@
                             <div class="post-img lvl-2" style=<?php the_tile_style($latest_posts, 2); ?>></div>
                         </div>
                         <div class="tile-overlay">
-                            <h2><?php the_post_title($latest_posts, 2); ?></h2>
+                            <?php the_overlay_content($latest_posts, 2); ?>
                         </div>
                     </div>
                 </div>
@@ -101,7 +126,7 @@
                     <div class="post-img lvl-3" style=<?php the_tile_style($latest_posts, 3); ?>></div>
                 </div>
                 <div class="tile-overlay">
-                    <h2><?php the_post_title($latest_posts, 3); ?></h2>
+                    <?php the_overlay_content($latest_posts, 3); ?>
                 </div>
             </div>
             <div class="col-sm-4 tile-container">
@@ -109,7 +134,7 @@
                     <div class="post-img lvl-3" style=<?php the_tile_style($latest_posts, 4); ?>></div>
                 </div>
                 <div class="tile-overlay">
-                    <h2><?php the_post_title($latest_posts, 4); ?></h2>
+                    <?php the_overlay_content($latest_posts, 4); ?>
                 </div>
             </div>
             <div class="col-sm-4 tile-container">
@@ -117,7 +142,7 @@
                     <div class="post-img lvl-3" style=<?php the_tile_style($latest_posts, 5); ?>></div>
                 </div>
                 <div class="tile-overlay">
-                    <h2><?php the_post_title($latest_posts, 5); ?></h2>
+                    <?php the_overlay_content($latest_posts, 5); ?>
                 </div>
             </div>
         </div>
