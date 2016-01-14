@@ -26,19 +26,18 @@
             // ... make the dropdown panel visible ...
             overlay.css('display', 'block');
 
-            // ... define the mouseenter handler to show the dropdown panel ...
+            // ... define the mouseenter event handler to show the dropdown panel ...
             function showOverlay() {
                 overlay.css('top', 0);
             }
+            tile.off('mouseenter').on('mouseenter', showOverlay);
+
             // ... define the mouseleave event handler to hide the dropdown
             // panel ...
             function hideOverlay() {
                 overlay.css('top', initialTop);
             }
-            // ... set up the mouse events for its post tile to
-            // drop up and down the panel over its post tile.
-            tile.off('mouseenter').on('mouseenter', showOverlay)
-                .off('mouseleave').on('mouseleave', hideOverlay);
+            overlay.off('mouseleave').on('mouseleave', hideOverlay);
         })
     }
 
