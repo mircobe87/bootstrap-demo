@@ -6,6 +6,12 @@
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
     webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
 }
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
 
 body {
     background-color: rgba(238, 238, 238, 1);
@@ -60,4 +66,44 @@ footer > div {
     transition: top 0.25s;
     color: white;
     overflow: hidden;
+}
+.overlay-header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #222222;
+    box-shadow: 0 -4px 8px 4px black;
+    padding: 0 4px;
+    font-style: italic;
+    color: #dedede;
+    line-height: 20px;
+    font-size: 0.8em;
+}
+.overlay-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    position: absolute;
+    top: 32px;
+    padding: 0 8px;
+}
+.overlay-body {
+    position: absolute;
+    top: 64px;
+    bottom: 24px;
+    overflow: hidden;
+    padding: 0 16px;
+}
+.overlay-footer {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #222222;
+    box-shadow: 0 4px 8px 4px black;
+    padding: 0 4px;
+    font-style: italic;
+    color: #dedede;
+    line-height: 20px;
+    font-size: 0.8em;
 }

@@ -40,11 +40,11 @@
                 );
                 array_push($latest_posts, $post_map);
             }
-            /*
+/*
             ?>
                 <code><?php echo var_dump($latest_posts) ?></code>
             <?php
-            */
+*/
         }
         function the_tile_style($posts_data, $index)
         {
@@ -69,17 +69,46 @@
             echo $content;
             */
         }
+        function getName($cat) {
+            return $cat -> {'name'};
+        }
+        function concat($str0, $str1) {
+            if ($str0 == null || $str0 == '') {
+                return $str1;
+            }
+            return $str0 . ', ' . $str1;
+        }
+        function the_categories_list($posts_data, $index)
+        {
+            $categories = $posts_data[$index]['categories'];
+            $list = array_reduce(array_map("getName", $categories), "concat");
+            return $list;
+        }
+        function the_tags_list($posts_data, $index)
+        {
+            $tags = $posts_data[$index]['tags'];
+            $list = array_reduce(array_map("getName", $tags), "concat");
+            return $list;
+        }
 
         function the_overlay_content($posts_data, $index)
         {
             if ($index < count($posts_data)) {
                 ?>
-                    <div>
-                        <span><?php echo $posts_data[$index]['date']; ?></span>
-                        <span><?php echo $posts_data[$index]['author']; ?></span>
+                    <div class="overlay-header">
+                        <span class="left"><?php echo $posts_data[$index]['date']; ?></span>
+                        <span class="right"><?php echo $posts_data[$index]['author']; ?></span>
                     </div>
-                    <h2><?php echo $posts_data[$index]['title']; ?></h2>
-                    <?php the_post_content($posts_data, $index) ?>
+                    <div class="overlay-title">
+                        <?php echo $posts_data[$index]['title']; ?>
+                    </div>
+                    <div class="overlay-body">
+                        <?php the_post_content($posts_data, $index) ?>
+                    </div>
+                    <div class="overlay-footer">
+                        <span class="left"><?php echo the_categories_list($posts_data, $index); ?></span>
+                        <span class="right"><?php echo the_tags_list($posts_data, $index); ?></span>
+                    </div>
                 <?php
             } else {
                 ?>
