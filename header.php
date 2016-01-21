@@ -52,7 +52,11 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="navbar-link" href="/wp-admin/index.php" target="_blank">Admin</a></li>
+                    <li>
+                        <a class="navbar-link" href="/wp-admin/index.php" target="_blank">
+                            <?php _e('Admin', 'bootstrapdemo') ?>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
